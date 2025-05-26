@@ -1,12 +1,26 @@
 import React from 'react'
-import { Link } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css' // Importing the CSS file for styling
 
 function Navbar() {
+  const navigate = useNavigate();
+  const isLoggedIn = !!sessionStorage.getItem("auth-token");
+  const email = sessionStorage.getItem("email");
+  // Extract username before @ if email exists
+  const username = email ? email.split('@')[0] : '';
+
   // Placeholder for the menu icon click handler
   const handleClick = () => {
     // Add your menu toggle logic here
   };
+
+  const handleLogout = () => {
+    sessionStorage.clear();
+    navigate("/login");
+    window.location.reload();
+  };
+
+  sessionStorage.setItem("email", email);
 
   return (
     <div>
@@ -51,17 +65,31 @@ function Navbar() {
             <Link to="#">Appointments</Link>
           </li>
           {/* List item for the 'Sign Up' link with a button */}
-          <li className="link">
-            <Link to="/signup">
-              <button className="btn1">Sign Up</button>
-            </Link>
-          </li>
-          {/* List item for the 'Login' link with a button */}
-          <li className="link">
-            <Link to="/login">
-              <button className="btn1">Login</button>
-            </Link>
-          </li>
+          {!isLoggedIn ? (
+            <>
+              <li className="link">
+                <Link to="/signup">
+                  <button className="btn1">Sign Up</button>
+                </Link>
+              </li>
+              {/* List item for the 'Login' link with a button */}
+              <li className="link">
+                <Link to="/login">
+                  <button className="btn1">Login</button>
+                </Link>
+              </li>
+            </>
+          ) : (
+            <>
+              {/* Username display */}
+              <li className="link" style={{ marginRight: '10px', fontWeight: 'bold', color: '#3685fb' }}>
+                {username}
+              </li>
+              <li className="link">
+                <button className="btn1" onClick={handleLogout}>Logout</button>
+              </li>
+            </>
+          )}
         </ul>
       </nav>
     </div>

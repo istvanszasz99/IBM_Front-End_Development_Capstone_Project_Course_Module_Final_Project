@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom'
 import './Navbar.css' // Importing the CSS file for styling
 
 function Navbar() {
@@ -13,7 +14,7 @@ function Navbar() {
         {/* Navigation logo section */}
         <div className="nav__logo">
           {/* Link to the home page */}
-          <a href="/">
+          <Link to="/">
             StayHealthy
             {/* Insert an SVG icon of a doctor with a stethoscope */}
             <svg xmlns="http://www.w3.org/2000/svg" height="26" width="26" viewBox="0 0 1000 1000" style={{ fill: "#3685fb" }}>
@@ -29,7 +30,7 @@ function Navbar() {
                 </g>
               </g>
             </svg>
-          </a>
+          </Link>
           {/* A span element for styling purposes */}
           <span>.</span>
         </div>
@@ -43,23 +44,23 @@ function Navbar() {
         <ul className="nav__links active">
           {/* List item for the 'Home' link */}
           <li className="link">
-            <a href="../Landing_Page/LandingPage.html">Home</a>
+            <Link to="/">Home</Link>
           </li>
           {/* List item for the 'Appointments' link */}
           <li className="link">
-            <a href="#">Appointments</a>
+            <Link to="#">Appointments</Link>
           </li>
           {/* List item for the 'Sign Up' link with a button */}
           <li className="link">
-            <a href="../Sign_Up//Sign_Up.html">
+            <Link to="/signup">
               <button className="btn1">Sign Up</button>
-            </a>
+            </Link>
           </li>
           {/* List item for the 'Login' link with a button */}
           <li className="link">
-            <a href="../Login/Login.html">
+            <Link to="/login">
               <button className="btn1">Login</button>
-            </a>
+            </Link>
           </li>
         </ul>
       </nav>

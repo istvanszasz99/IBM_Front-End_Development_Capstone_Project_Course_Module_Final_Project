@@ -19,21 +19,26 @@
 /* Styles for the grid layout of the signup form */
 .signup-grid {
     display: grid; /* Use grid layout for the element */
-    grid-template-columns: 0.1fr 1.5fr 8fr; /* Define columns with fractional widths */
+    grid-template-columns: 1fr 1fr 1fr; /* Equal columns for centering */
     grid-gap: 10px; /* Set the gap between grid items */
+    align-items: center; /* Vertically center items */
+    justify-items: center; /* Horizontally center items */
 }
 
-/* Styles for the main signup text */
+/* Center and style main signup text */
 .signup-text {
-    margin-top: 30px; /* Add top margin */
-    grid-column: 1 / 4; /* Span across all three columns */
-    text-align: center; /* Center-align text */
+    grid-column: 1 / 4; /* Span all columns */
+    text-align: center;  /* Center text */
+    margin-bottom: 10px;
+    width: 100%;
 }
 
-/* Styles for additional signup text */
+/* Center and style additional signup text */
 .signup-text1 {
-    grid-column: -1 / 3; /* Span from second to third column from the end */
-    text-align: right; /* Right-align text */
+    grid-column: 1 / 4; /* Span all columns */
+    text-align: center;  /* Center text */
+    margin-bottom: 10px;
+    width: 100%;
 }
 
 .signup-text1 span {
@@ -44,7 +49,12 @@
 
 /* Styles for the signup form section */
 .signup-form {
-    grid-column: 2 / 4; /* Span from second to fourth column */
+    grid-column: 2 / 3; /* Center the form in the middle column */
+    justify-self: center; /* Center the form horizontally */
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* Styles for the overall signup container */
@@ -82,7 +92,7 @@
 
 /* Styles for form controls in the signup form */
 .form-control {
-    width: 40%; /* Set width of form controls */
+    width: 100%; /* Set width of form controls */
     padding: 8px; /* Add padding inside form controls */
     font-size: 16px; /* Set font size */
     border: 1px solid #ccc; /* Add border with color */
@@ -93,6 +103,7 @@
 .btn-group {
     margin-top: .0001px; /* Add a small top margin to button group */
     margin-bottom: 20px; /* Add bottom margin to button group */
+    width: 100%; /* Set width of buttons to fill the container */
 }
 
 /* Styles for buttons in the signup form */

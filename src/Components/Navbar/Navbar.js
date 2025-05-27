@@ -69,7 +69,7 @@ function Navbar() {
             <Link to="/#">Health Blog</Link>
           </li>
           <li className="link">
-            <Link to="/#">Reviews</Link>
+            <Link to="/review-form">Reviews</Link>
           </li>
           {/* List item for the 'Sign Up' link with a button */}
           {!isLoggedIn ? (

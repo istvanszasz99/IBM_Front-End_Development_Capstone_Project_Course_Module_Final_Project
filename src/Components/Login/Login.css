@@ -1,9 +1,8 @@
 /* Styles for the main container */
 .container {
-    max-width: 900px; /* Maximum width of the container */
     margin: 0 auto; /* Center the container horizontally */
-    padding: 40px; /* Padding inside the container */
     margin-top: 10%; /* Top margin of 10% */
+    padding-left: 40%; /* Padding set to auto for centering */
 }
 
 /* Styles for form groups */
@@ -61,6 +60,8 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
+    background-color: whitesmoke;
+    width: 400px;
 }
 
 /* Center and style login text */

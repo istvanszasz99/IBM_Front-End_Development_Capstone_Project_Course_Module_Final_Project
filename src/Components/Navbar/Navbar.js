@@ -64,6 +64,13 @@ function Navbar() {
           <li className="link">
             <Link to="#">Appointments</Link>
           </li>
+          {/* Add Health Blog and Reviews links here */}
+          <li className="link">
+            <Link to="/#">Health Blog</Link>
+          </li>
+          <li className="link">
+            <Link to="/#">Reviews</Link>
+          </li>
           {/* List item for the 'Sign Up' link with a button */}
           {!isLoggedIn ? (
             <>

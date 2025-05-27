@@ -13,7 +13,7 @@ import Login from './Components/Login/Login';
 import SignUp from './Components/Sign_Up/SignUp';
 import InstantConsultation from './Components/InstantConsultation/InstantConsultation';
 import BookingConsultation from './Components/BookingConsultation';
-
+import Notification from './Components/Notification/Notification';
 // Function component for the main App
 function App() {
 
@@ -24,6 +24,7 @@ function App() {
         <BrowserRouter>
           {/* Display the Navbar component */}
           <Navbar/>
+          <Notification>
 
           {/* Set up the Routes for different pages */}
           <Routes>
@@ -34,6 +35,7 @@ function App() {
             <Route path="/instant-consultation" element={<InstantConsultation />} />
             <Route path="/booking-consultation" element={<BookingConsultation />} />
           </Routes>
+          </Notification>
         </BrowserRouter>
     </div>
   );

@@ -1,10 +1,8 @@
 /* Styles for the container element */
-.container {
-    max-width: 900px; /* Set maximum width for the container */
+.signup-container {
     margin: 0 auto; /* Center the container horizontally */
-    padding: 40px; /* Add padding inside the container */
-    margin-top: 10%; /* Set top margin as a percentage of the viewport height */
-    overflow: hidden; /* Hide any overflowing content */
+    margin-top: 10%; /* Top margin of 10% */
+    padding-left: 35%; /* Padding set to auto for centering */
 }
 
 /* Styles for the password visibility icon */
@@ -23,6 +21,8 @@
     grid-gap: 10px; /* Set the gap between grid items */
     align-items: center; /* Vertically center items */
     justify-items: center; /* Horizontally center items */
+    background-color: whitesmoke;
+    width: 600px;
 }
 
 /* Center and style main signup text */

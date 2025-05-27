@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useRef, useEffect } from 'react'
 import { Link, useNavigate } from 'react-router-dom'
 import './Navbar.css' // Importing the CSS file for styling
 
@@ -9,7 +9,24 @@ function Navbar() {
   // Extract username before @ if email exists
   const username = email ? email.split('@')[0] : '';
 
-  // Placeholder for the menu icon click handler
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+  const dropdownRef = useRef(null);
+
+  // Close dropdown when clicking outside
+  useEffect(() => {
+    function handleClickOutside(event) {
+      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) {
+        setDropdownOpen(false);
+      }
+    }
+    if (dropdownOpen) {
+      document.addEventListener("mousedown", handleClickOutside);
+    }
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [dropdownOpen]);
+
   const handleClick = () => {
     // Add your menu toggle logic here
   };
@@ -88,9 +105,25 @@ function Navbar() {
             </>
           ) : (
             <>
-              {/* Username display */}
-              <li className="link" style={{ marginRight: '10px', fontWeight: 'bold', color: '#3685fb' }}>
+              {/* Username dropdown */}
+              <li
+                className="link nav-username-dropdown"
+                style={{ marginRight: '10px', fontWeight: 'bold', color: '#3685fb', position: 'relative', cursor: 'pointer' }}
+                ref={dropdownRef}
+                onClick={() => setDropdownOpen((open) => !open)}
+              >
                 {username}
+                <span style={{ marginLeft: 6, fontSize: 12 }}>▼</span>
+                {dropdownOpen && (
+                  <div className="nav-dropdown-menu">
+                    <button className="nav-dropdown-item" onClick={() => { setDropdownOpen(false); navigate('/profile'); }}>
+                      Profile
+                    </button>
+                    <button className="nav-dropdown-item" onClick={() => { setDropdownOpen(false); navigate('/reports'); }}>
+                      Reports
+                    </button>
+                  </div>
+                )}
               </li>
               <li className="link">
                 <button className="btn1" onClick={handleLogout}>Logout</button>

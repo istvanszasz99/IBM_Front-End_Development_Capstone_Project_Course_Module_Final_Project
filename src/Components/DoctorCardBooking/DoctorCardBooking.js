@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from 'react';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
-import './DoctorCardIC.css';
-import AppointmentFormIC from '../AppointmentFormIC/AppointmentFormIC'
+import './DoctorCardBooking.css';
+import AppointmentFormBooking from '../AppointmentFormBooking/AppointmentFormBooking'
 import { v4 as uuidv4 } from 'uuid';
 
 
-const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => {
+const DoctorCardBooking = ({ name, speciality, experience, ratings, profilePic }) => {
   const [showModal, setShowModal] = useState(false);
   const [appointments, setAppointments] = useState([]);
 
@@ -19,14 +19,38 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
     setAppointments(updatedAppointments);
   };
 
-  const handleFormSubmit = (appointmentData) => {
+  const handleFormSubmit = async (appointmentData) => {
     const newAppointment = {
       id: uuidv4(),
       ...appointmentData,
     };
-    const updatedAppointments = [...appointments, newAppointment];
-    setAppointments(updatedAppointments);
-    setShowModal(false);
+
+    // Send to backend
+    try {
+      const response = await fetch('http://localhost:8181/api/booking-consultation', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          doctorName: name,
+          doctorSpeciality: speciality,
+          name: appointmentData.name,
+          phoneNumber: appointmentData.phoneNumber,
+          selectedDate: appointmentData.selectedDate,
+          selectedSlot: appointmentData.selectedSlot,
+        }),
+      });
+      if (response.ok) {
+        // Optionally handle response, show notification, etc.
+        const updatedAppointments = [...appointments, newAppointment];
+        setAppointments(updatedAppointments);
+        setShowModal(false);
+      } else {
+        // Handle error
+        alert('Failed to book appointment1.');
+      }
+    } catch (err) {
+      alert('Failed to book appointment2.');
+    }
   };
 
   return (
@@ -89,12 +113,14 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
+                      <p>Date: {appointment.selectedDate}</p>
+                      <p>Time Slot: {appointment.selectedSlot}</p>
                       <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
                     </div>
                   ))}
                 </>
               ) : (
-                <AppointmentFormIC doctorName={name} doctorSpeciality={speciality} onSubmit={handleFormSubmit} />
+                <AppointmentFormBooking doctorName={name} doctorSpeciality={speciality} onSubmit={handleFormSubmit} />
               )}
             </div>
           )}
@@ -104,4 +130,4 @@ const DoctorCardIC = ({ name, speciality, experience, ratings, profilePic }) => 
   );
 };
 
-export default DoctorCardIC;
+export default DoctorCardBooking;

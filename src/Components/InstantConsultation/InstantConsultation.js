@@ -52,11 +52,10 @@ const InstantConsultation = () => {
     const navigate = useNavigate();
     useEffect(() => {
         getDoctorsDetails();
-        const authtoken = sessionStorage.getItem("auth-token");
-        if (!authtoken) {
-            navigate("/login");
-        }
-    // eslint-disable-next-line
+        // const authtoken = sessionStorage.getItem("auth-token");
+        // if (!authtoken) {
+        //     navigate("/login");
+        // }
     }, [searchParams])
 
     return (

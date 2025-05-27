@@ -20,6 +20,8 @@ connectToMongo();
 
 // Routes
 app.use('/api/auth', require('./routes/auth'));
+app.use('/api/instant-consultation', require('./routes/instantConsultation'));
+app.use('/api/booking-consultation', require('./routes/bookingConsultation'));
 
 app.get('/', (req, res) => {
     res.send('Hello World!');

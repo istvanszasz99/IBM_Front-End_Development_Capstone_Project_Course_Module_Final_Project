@@ -1,0 +1,73 @@
+.selfcheckup-container {
+    max-width: 600px;
+    margin: 10% auto 0 auto;
+    padding: 24px;
+    background: #f8fafc;
+    border-radius: 14px;
+    box-shadow: 0 4px 24px rgba(54,133,251,0.08);
+}
+
+.selfcheckup-title {
+    text-align: center;
+    color: #3685fb;
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 32px;
+    letter-spacing: 1px;
+}
+
+.selfcheckup-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.selfcheckup-item {
+    margin-bottom: 1.5rem;
+    border: 1px solid #c3dafe;
+    border-radius: 10px;
+    padding: 1.2rem 1.5rem;
+    background: #fff;
+    box-shadow: 0 2px 8px rgba(54,133,251,0.04);
+    transition: box-shadow 0.2s;
+}
+
+.selfcheckup-item-title {
+    margin: 0 0 0.5rem 0;
+    color: #2563c9;
+    font-size: 1.2rem;
+    font-weight: 600;
+}
+
+.selfcheckup-item-summary {
+    margin: 0 0 0.5rem 0;
+    color: #444;
+    font-size: 1rem;
+}
+
+.selfcheckup-item-details {
+    margin-top: 0.5rem;
+    color: #555;
+    font-size: 0.98rem;
+    background: #f5faff;
+    border-radius: 6px;
+    padding: 0.75rem 1rem;
+}
+
+.selfcheckup-btn {
+    margin-top: 0.7rem;
+    background: #3685fb;
+    color: #fff;
+    border: none;
+    border-radius: 6px;
+    padding: 8px 18px;
+    font-size: 1rem;
+    cursor: pointer;
+    font-weight: 500;
+    transition: background 0.2s;
+    outline: none;
+}
+
+.selfcheckup-btn:hover {
+    background: #2563c9;
+}

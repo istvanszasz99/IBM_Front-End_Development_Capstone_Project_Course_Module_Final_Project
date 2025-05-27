@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate, useSearchParams } from 'react-router-dom';
-import FindDoctorSearchIC from './FindDoctorSearchIC/FindDoctorSearchIC';
-import DoctorCardIC from './DoctorCardIC/DoctorCardIC';
+import FindDoctorSearchIC from '../FindDoctorSearchIC/FindDoctorSearchIC';
+import DoctorCardIC from '../DoctorCardIC/DoctorCardIC';
 
 const BookingConsultation = () => {
     const [searchParams] = useSearchParams();

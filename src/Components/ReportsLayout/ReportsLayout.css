@@ -1,10 +1,10 @@
 .ReviewFormPanel {
     width: 100%;
     min-height: 640px;
-    margin-top: 6%;
+    margin-top: 10%;
     margin-left: 0;
     z-index: 1;
-    background: #f8fafc;
+    background: #ffffff;
     padding-bottom: 40px;
     border-radius: 12px;
     box-shadow: 0 4px 24px rgba(54,133,251,0.08);

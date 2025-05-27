@@ -1,4 +1,5 @@
 import React from "react"; // Importing the necessary modules from React library
+import { Link } from "react-router-dom";
 import "./LandingPage.css"; // Importing the CSS styles for the Landing_Page component
 
 // Defining the Function component Landing_Page
@@ -23,11 +24,13 @@ const Landing_Page = () => {
                   <div className="blue1 blob"></div> {/* Creating a different blue blob inside the second 'blob-cont' div */}
               </div>
             <h4>
-              Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eaque at quae ducimus. Suscipit omnis quibusdam non cum rem voluptatem!
+              "Embrace the art of self-care, for a healthy mind and body forge the foundation of a vibrant life.<br/>
+              Wellness is not just a destination; it's a journey of a mindful choices and daily transformations. Nuture<br/>
+              your health with love, and watch it bloom into a beacon of joy and vitality." {/* A quote about self-care and health solutions */}
             </h4>
-            <a href="#services"> {/* Creating a hyperlink to jump to the 'services' section */}
+            <Link to="/best-services"> {/* Creating a hyperlink to jump to the 'services' section */}
               <button className="button">Get Started</button> {/* Creating a button with class name 'button' */}
-            </a>
+            </Link>
         </div>
       </div>
     </section>
